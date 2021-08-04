@@ -1,9 +1,9 @@
 import React from "react";
-import "./style.css";
 import { AiOutlineGlobal } from "react-icons/ai";
-import { SET_COVID } from "../../redux/actions/covid";
+import { SET_COVID } from "../../../redux/actions/covid";
 import { useDispatch, useSelector } from "react-redux";
-import { displayList, sort } from "../../functions/displayListe";
+import { displayList, sort } from "../../../functions/displayListe";
+import Loader from "../../CommonComponents/Loder";
 
 const GlobalSituation = () => {
   const { covid19Data, listDisplay, sortDisplay } = useSelector(
@@ -49,45 +49,46 @@ const GlobalSituation = () => {
       </div>
       <div className="Display-data-list-containter">
         <ul className="Country-container">
-          <li className="Country-content Sticky">
-            <div className="Country-data Strong">Total</div>
-            <div className="Country-name Strong">Country</div>
-          </li>
-          <li className="Country-content Back">
-            <div className="Country-data">
-              {covid19Data ? (
-                covid19Data
-                  .map((covid) => displayList(listDisplay, covid))
-                  .reduce((a, b) => a + b)
-                  .toLocaleString("en")
-              ) : (
-                <></>
-              )}
-            </div>
-            <div className="Country-name">
-              <AiOutlineGlobal className="Global-icone" />
-              <div className="Global-title">WorldWide</div>
-            </div>
-          </li>
-
           {covid19Data ? (
-            covid19Data.sort(sort(sortDisplay, listDisplay)).map((covid, i) => (
-              <li key={i} className="Country-content">
+            <>
+              <li className="Country-content Sticky">
+                <div className="Country-data Strong">Total</div>
+                <div className="Country-name Strong">Country</div>
+              </li>
+
+              <li className="Country-content Back">
                 <div className="Country-data">
-                  {displayList(listDisplay, covid).toLocaleString("en")}
+                  {covid19Data
+                    .map((covid) => displayList(listDisplay, covid))
+                    .reduce((a, b) => a + b)
+                    .toLocaleString("en")}
                 </div>
                 <div className="Country-name">
-                  <img
-                    className="Country-flag"
-                    src={covid.countryInfo.flag}
-                    alt="flag"
-                  />
-                  <div>{covid.country.substring(0, 19)}</div>
+                  <AiOutlineGlobal className="Global-icone" />
+                  <div className="Global-title">WorldWide</div>
                 </div>
               </li>
-            ))
+
+              {covid19Data
+                .sort(sort(sortDisplay, listDisplay))
+                .map((covid, i) => (
+                  <li key={i} className="Country-content">
+                    <div className="Country-data">
+                      {displayList(listDisplay, covid).toLocaleString("en")}
+                    </div>
+                    <div className="Country-name">
+                      <img
+                        className="Country-flag"
+                        src={covid.countryInfo.flag}
+                        alt="flag"
+                      />
+                      <div>{covid.country.substring(0, 25)}</div>
+                    </div>
+                  </li>
+                ))}
+            </>
           ) : (
-            <div>load</div>
+            <Loader />
           )}
         </ul>
       </div>

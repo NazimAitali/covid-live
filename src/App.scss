@@ -1,3 +1,6 @@
+@import "./styles/Reset.scss";
+@import "./styles/Libs/Variables.scss";
+
 p,
 h5 {
   padding: 0;
@@ -6,10 +9,13 @@ h5 {
 
 *::before,
 *::after {
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
+
 .App {
-  background-color: #F9F8FD;
+  background-color: $primaryColor;
+  color: whitesmoke;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
@@ -18,5 +24,7 @@ h5 {
 .Global-container {
   width: 100%;
   height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }

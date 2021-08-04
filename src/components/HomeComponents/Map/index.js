@@ -1,20 +1,19 @@
 import React, { useEffect } from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import "leaflet/dist/leaflet.css";
-import "./style.css";
-import Mapcontainer from "./map-container";
-import { pushInMyMap } from "../../functions/push";
+import Mapcontainer from "./Map-container";
+import { pushInMyMap } from "../../../functions/push";
 import { useSelector, useDispatch } from "react-redux";
-import Loader from "../loder";
-import { SET_COVID } from "../../redux/actions/covid";
-const Map = ({ myMap }) => {
+import Loader from "../../CommonComponents/Loder";
+import { SET_COVID } from "../../../redux/actions/covid";
+const Map = () => {
   const dispatch = useDispatch();
-  const { covid19Data, loaderjson, MapDisplay } = useSelector(
+  const { covid19Data, loaderjson, geoJson } = useSelector(
     (state) => state.coviData
   );
   useEffect(() => {
     const push = async () => {
-      await pushInMyMap(covid19Data, myMap, MapDisplay);
+      await pushInMyMap(covid19Data, geoJson, dispatch);
       await dispatch({
         type: SET_COVID,
         payload: {
@@ -23,7 +22,7 @@ const Map = ({ myMap }) => {
       });
     };
     push();
-  }, [covid19Data]);
+  }, [covid19Data]); // eslint-disable-next-line react-hooks/exhaustive-deps
 
   return (
     <div className="container">
@@ -74,10 +73,7 @@ const Map = ({ myMap }) => {
               <GoPrimitiveDot style={{ color: "#d21313" }} />
             </li>
 
-            <li className="Dots" style={{ width: "20%" }}>
-              {" "}
-              Over 30 M
-            </li>
+            <li className="Dots Last"> Over 30 M</li>
           </ul>
         </div>
       </div>
@@ -86,21 +82,7 @@ const Map = ({ myMap }) => {
       ) : (
         <div style={{ width: "100%", height: "100%" }}>
           {" "}
-          <Mapcontainer MapDisplay={MapDisplay} myMap={myMap} />
-          {/* <MapContainer
-            center={center}
-            zoom={1.5}
-            minZoom={1.5}
-            scrollWheelZoom={true}
-            dragging={true}
-            boxZoom={false}
-          >
-            <GeoJSON
-              style={countriesStyles}
-              data={myMap}
-              onEachFeature={onEachCountries}
-            />
-          </MapContainer> */}
+          <Mapcontainer geoJson={geoJson} />
         </div>
       )}
     </div>

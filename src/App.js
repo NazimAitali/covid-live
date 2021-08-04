@@ -1,8 +1,6 @@
 import "./mobile.css";
-import "./App.css";
-
-import Screen from "./screen/Screen";
-
+import "./App.scss";
+import Screen from "./routes";
 function App() {
   return (
     <div className="App">

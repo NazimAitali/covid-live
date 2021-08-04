@@ -1,7 +1,8 @@
 import React from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import { useSelector } from "react-redux";
-import "./style.css";
+import Loader from "../../CommonComponents/Loder";
+
 const CountryDisplay = () => {
   const {
     localisation,
@@ -25,7 +26,7 @@ const CountryDisplay = () => {
 
         <div className="Box-bottom actif">
           {loadercovid ? (
-            <div>loading ...</div>
+            <Loader />
           ) : covid19Data ? (
             covid19Data.map((covid) =>
               covid.country ===
@@ -34,13 +35,18 @@ const CountryDisplay = () => {
                   covid19DataYesterday ? (
                     covid19DataYesterday.map((yest) =>
                       yest.country ===
-                      (countryResearch ? countryResearch : localisation.country)
-                        ? yest.todayCases
-                        : null
+                      (countryResearch
+                        ? countryResearch
+                        : localisation.country) ? (
+                        <div>
+                          <div style={{ fontSize: ".2em" }}>Yesterday</div>
+                          {yest.todayCases.toLocaleString("en")}
+                        </div>
+                      ) : null
                     )
                   ) : null
                 ) : (
-                  <div>{covid.todayCases}</div>
+                  <div>{covid.todayCases.toLocaleString("en")}</div>
                 )
               ) : null
             )
@@ -61,7 +67,7 @@ const CountryDisplay = () => {
         </div>
         <div className="Box-bottom recovered">
           {loadercovid ? (
-            <div>loading ...</div>
+            <Loader />
           ) : covid19Data ? (
             covid19Data.map((covid) =>
               covid.country ===
@@ -70,13 +76,19 @@ const CountryDisplay = () => {
                   covid19DataYesterday ? (
                     covid19DataYesterday.map((yest) =>
                       yest.country ===
-                      (countryResearch ? countryResearch : localisation.country)
-                        ? yest.todayRecovered
-                        : null
+                      (countryResearch
+                        ? countryResearch
+                        : localisation.country) ? (
+                        <div>
+                          {" "}
+                          <div style={{ fontSize: ".2em" }}>Yesterday</div>
+                          {yest.todayRecovered.toLocaleString("en")}
+                        </div>
+                      ) : null
                     )
                   ) : null
                 ) : (
-                  <div>{covid.todayRecovered}</div>
+                  <div>{covid.todayRecovered.toLocaleString("en")}</div>
                 )
               ) : null
             )
@@ -97,7 +109,7 @@ const CountryDisplay = () => {
         </div>
         <div className="Box-bottom death">
           {loadercovid ? (
-            <div>loading ...</div>
+            <Loader />
           ) : covid19Data ? (
             covid19Data.map((covid) =>
               covid.country ===
@@ -106,13 +118,18 @@ const CountryDisplay = () => {
                   covid19DataYesterday ? (
                     covid19DataYesterday.map((yest) =>
                       yest.country ===
-                      (countryResearch ? countryResearch : localisation.country)
-                        ? yest.todayDeaths
-                        : null
+                      (countryResearch
+                        ? countryResearch
+                        : localisation.country) ? (
+                        <div>
+                          <div style={{ fontSize: ".2em" }}>Yesterday</div>
+                          {yest.todayDeaths.toLocaleString("en")}
+                        </div>
+                      ) : null
                     )
                   ) : null
                 ) : (
-                  <div>{covid.todayDeaths}</div>
+                  <div>{covid.todayDeaths.toLocaleString("en")}</div>
                 )
               ) : null
             )

@@ -1,0 +1,67 @@
+@import "../../../styles/Libs/Variables.scss";
+@import "../../../styles/Libs/mixin.scss";
+%shadow {
+  box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
+}
+.Menu-container {
+  @include flex(flex, center, center, row);
+  @include dimension(7, 100);
+}
+
+.Logo-container {
+  @include flex(flex, center, center, column);
+}
+
+.Logo {
+  @include dimension(75, 100);
+}
+
+.Menu {
+  @include flex(flex, center, center, column);
+  @include dimension(60, 95);
+  background-color: $secondaryColor;
+  border-radius: 10px;
+  margin: 0 auto;
+  @extend %shadow;
+}
+
+.Liste {
+  @include flex(flex, flex-start, center, column);
+  @include dimension(80, 85);
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.Liste-btn {
+  @include flex(flex, flex-start, center, row);
+  @include dimension(100, 9);
+  margin-bottom: 20%;
+  margin-top: 20%;
+}
+
+.Liste-btn a {
+  @include flex(flex, center, center, row);
+  @include dimension(100, 100);
+  text-decoration: none;
+  color: $thirdlyColor;
+}
+
+.Mode-container {
+  @include flex(flex, center, center, column);
+  @include dimension(80, 10);
+}
+
+.Menu-icone {
+  font-size: 1.5em;
+}
+
+.Menu-active {
+  font-size: $screen-font-size-s;
+  background: $primaryColor;
+  border-radius: 10px;
+}
+
+.Mobile-menu {
+  display: none;
+}

@@ -37,24 +37,43 @@ const getDataYesterday = async (dispatch) => {
     console.log(err.message);
   }
 };
-const getAll = async (dispatch) => {
+const getHistoriqueData = async (dispatch, country) => {
   try {
-    const response = await axios.get(`${url}/all?yesterday=true`);
+    const response = await axios.get(
+      `${url}/historical/${country}?lastdays=10`
+    );
     if (!response || response.status !== 200) {
       console.log("no data");
     }
-
     dispatch({
       type: SET_COVID,
       payload: {
-        covid19All: response.data,
-        loaderGetAll: false,
+        historiqueData: response.data,
       },
     });
   } catch (err) {
     console.log(err.message);
   }
 };
+const fetchVaccination = async (dispatch, country) => {
+  try {
+    const reponse = await axios.get(
+      `${url}/vaccine/coverage/countries/${country}?lastdays=10&fullData=false`
+    );
+    if (!reponse || reponse.status !== 200) {
+      console.log("no data");
+    }
+    dispatch({
+      type: SET_COVID,
+      payload: {
+        fetchVaccination: reponse.data,
+      },
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
+};
+
 const getlocalisation = async (dispatch) => {
   try {
     const response = await axios.get("https://extreme-ip-lookup.com/json/");
@@ -74,4 +93,10 @@ const getlocalisation = async (dispatch) => {
   }
 };
 
-export { getDataYesterday, getAll, getlocalisation, getDataToday };
+export {
+  getDataYesterday,
+  getlocalisation,
+  getDataToday,
+  getHistoriqueData,
+  fetchVaccination,
+};

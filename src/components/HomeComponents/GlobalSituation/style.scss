@@ -1,0 +1,147 @@
+@import "../../../styles/Libs/Variables.scss";
+@import "../../../styles/Libs/mixin.scss";
+%shadow {
+  box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
+}
+.Display-data-global-content {
+  @include dimension(100, 95);
+  @include flex(flex, center, center, column);
+  @extend %shadow;
+  background-color: $secondaryColor;
+  border-radius: 15px;
+}
+
+.Display-data-research-containter {
+  @include dimension(90, 10);
+  @include flex(flex, space-evenly, center, row);
+}
+
+.Display-data-list-containter {
+  @include dimension(90, 90);
+  @include flex(flex, center, center, row);
+}
+
+.Global-situation-select {
+  @include dimension(90, 10);
+  @include flex(flex, space-evenly, center, row);
+}
+
+.Country-container {
+  @include dimension(95, 95);
+  @include flex(flex, flex-start, center, column);
+  position:relative;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: $primaryColor $thirdlyColor;
+}
+
+.Country-container::-webkit-scrollbar-track {
+  background-color: $thirdlyColor;
+  border-radius: 15px;
+}
+
+.Country-content {
+  @include flex(flex, center, center, row);
+  @include dimension(100, 100);
+  list-style: none;
+  margin-bottom: 1%;
+}
+
+.Country-data {
+  @include flex(flex, flex-start, center, row);
+  @include dimension(40, 50);
+  padding: 0px 0px 0px 5px;
+}
+
+.Sticky {
+  position: sticky;
+  top: 0;
+  background-color: $secondaryColor;
+}
+
+.Country-name {
+  @include flex(flex, flex-start, center, row);
+  @include dimension(70, 100);
+}
+
+.Country-flag {
+  @include dimension(12, 85);
+  margin-right:4%;
+}
+
+.Strong {
+  font-weight: 700;
+}
+
+.Back {
+  background-color: $primaryColor;
+  color: inherit;
+  border-radius: 10px;
+  @include dimension(100, 100);
+}
+
+.Global-icone {
+  @include dimension(20, 50);
+}
+
+.Global-title {
+  @include flex(flex, flex-start, center, row);
+  @include dimension(78, 100);
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: $primaryColor;
+  background-image: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.select {
+  position: relative;
+  @include flex(flex, flex-start, center, row);
+  @include dimension(40, 71);
+  line-height: 3;
+  background: $primaryColor;
+  border: solid 1px $secondaryColor;
+  overflow: hidden;
+  border-radius: 10px;
+  @extend %shadow;
+}
+
+select {
+  flex: 1;
+  padding: 0 0.5em;
+  color: inherit;
+  cursor: pointer;
+}
+
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: -4px;
+  right: 0;
+  padding: 0 0.5em;
+  background: $primaryColor;
+  cursor: pointer;
+  pointer-events: none;
+  -webkit-transition: 0.25s all ease;
+  -o-transition: 0.25s all ease;
+  transition: 0.25s all ease;
+}
+
+.select:hover::after {
+  color: inherit;
+}

@@ -1,0 +1,35 @@
+@import "../../../styles/Libs/Variables.scss";
+@import "../../../styles/Libs/mixin.scss";
+
+.loader-container {
+  @include flex(flex, center, center, row);
+  @include dimension(100, 100);
+}
+
+.loader {
+  @include rotate(2s);
+  height: 50px;
+  width: 50px;
+}
+
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+  content: "";
+  display: block;
+  height: 20px;
+  width: 20px;
+}
+
+.loader:before {
+  @include one(2s);
+  background-color: #cb2025;
+  box-shadow: 30px 0 0 #f8b334;
+  margin-bottom: 10px;
+}
+
+.loader:after {
+  @include two(2s);
+  background-color: #00a096;
+  box-shadow: 30px 0 0 #97bf0d;
+}

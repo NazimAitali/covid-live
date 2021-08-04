@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { SET_COVID } from "../../redux/actions/covid";
+import { SET_COVID } from "../../../../redux/actions/covid";
 const ReasearchBar = () => {
   const { localisation, covid19Data } = useSelector((state) => state.coviData);
   const countryListe = covid19Data
@@ -24,8 +24,8 @@ const ReasearchBar = () => {
           </option>
         ) : null}{" "}
         {countryListe
-          ? countryListe.map((option) => (
-              <option value={option}>{option}</option>
+          ? countryListe.map((option,i) => (
+              <option key={i} value={option}>{option}</option>
             ))
           : null}
       </select>

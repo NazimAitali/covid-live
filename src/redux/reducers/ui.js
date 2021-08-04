@@ -1,5 +1,9 @@
 import { SET_UI } from "../actions/ui";
-const initialState = {};
+const initialState = {
+  selectMenu: 1,
+  ShowVarChart: false,
+  ChangeChart: false,
+};
 
 const uiReducer = (state = initialState, action) => {
   switch (action.type) {

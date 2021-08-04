@@ -2,14 +2,15 @@ import { SET_COVID } from "../actions/covid";
 const initialState = {
   covid19Data: null,
   covid19DataYesterday: null,
-  covid19All: null,
+  historiqueData: null,
+  fetchVaccination: null,
+  geoJson: null,
+  localisation: false,
   listDisplay: "cases",
   sortDisplay: "up",
   countryResearch: false,
-  localisation: false,
-  loaderjson: false,
+  loaderjson: true,
   loadercovid: true,
-  loaderGetAll: true,
 };
 
 const covidReducer = (state = initialState, action) => {

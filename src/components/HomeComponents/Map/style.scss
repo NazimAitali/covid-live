@@ -1,0 +1,109 @@
+@import "../../../styles/Libs/Variables.scss";
+@import "../../../styles/Libs/mixin.scss";
+%shadow {
+  box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
+}
+.container {
+  @include flex(flex, center, center, column);
+  @include dimension(100, 70);
+  border-radius: 15px;
+  position: relative;
+}
+
+.leaflet-container {
+  @include dimension(100, 100);
+  position: relative;
+  top: 0;
+  border-radius: 15px;
+  background: $primaryColor !important;
+}
+
+.leaflet-control-attribution a {
+  display: none;
+}
+
+.Map-title-container {
+  @include dimension(73, 10);
+  @include flex(flex, center, center, row);
+  position: absolute;
+  top: 0;
+  z-index: 401;
+  background-color: rgba($primaryColor, 0.8);
+  border-radius: 0 0 15px 15px;
+}
+
+.Map-title-content {
+  @include dimension(40, 100);
+  @include flex(flex, center, center, row);
+}
+
+.Map-title {
+  @include dimension(85, 100);
+  @include flex(flex, center, center, row);
+}
+
+.Map-color-content {
+  @include dimension(60, 100);
+  @include flex(flex, center, center, row);
+}
+
+.Map-color {
+  @extend .Map-title;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.leaflet-left {
+  position: absolute;
+  left: 1%;
+}
+
+.leaflet-interactive:active {
+  fill: $box-recovered;
+  fill-opacity: 0.2;
+}
+
+.map {
+  @include dimension(100, 100);
+}
+
+.custom .leaflet-popup-tip,
+.custom .leaflet-popup-content-wrapper {
+  background-color: rgba($primaryColor, 0.8);
+  color: inherit;
+  @include dimension(100, 30);
+  overflow: hidden;
+}
+
+.custom .leaflet-popup-tip h2,
+.custom .leaflet-popup-content-wrapper h2 {
+  text-align: center;
+  @include dimension(50, 100);
+}
+
+.popup-container {
+  @include flex(flex, center, center, column);
+}
+
+.popup-top {
+  @include flex(flex, space-evenly, center, row);
+  @include dimension(100, 100);
+}
+
+.flag {
+  @include dimension(15, 8);
+}
+
+.popup-data {
+  @include dimension(100, 40);
+  @include flex(flex, center, center, row);
+}
+
+.Dots {
+  @include dimension(5, 100);
+  @include flex(flex, center, center, row);
+}
+
+.Last {
+  @include dimension(20, 100);
+}

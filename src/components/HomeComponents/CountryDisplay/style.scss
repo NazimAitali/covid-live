@@ -1,0 +1,65 @@
+@import "../../../styles/Libs/Variables.scss";
+@import "../../../styles/Libs/mixin.scss";
+
+%shadow {
+  box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
+}
+.Country-display {
+  @include dimension(100, 25);
+  @include flex(flex, space-evenly, center, row);
+}
+
+.Box-display {
+  @include dimension(27, 80);
+  @include flex(flex, center, center, column);
+  border-radius: 15px;
+}
+
+.Box-top-content {
+  @include flex(flex, center, center, row);
+  @include dimension(100, 35);
+}
+
+.Box-top {
+  @include dimension(85, 100);
+  @include flex(flex, space-between, center, row);
+  font-weight: 500;
+}
+
+.Box-bottom {
+  @include dimension(85, 65);
+  @include flex(flex, flex-start, center, row);
+  font-size:$screen-font-size-l;
+  font-weight: 700;
+}
+
+.actif {
+  color: $box-indectedLight;
+}
+
+.recovered {
+  color: $box-recoveredLight;
+}
+
+.death {
+  color: $box-deathsLight;
+}
+
+.actif-box {
+  background-color: $box-indected;
+  @extend %shadow;
+}
+
+.recovered-box {
+  background-color: $box-recovered;
+  @extend %shadow;
+}
+
+.death-box {
+  background-color: $box-deaths;
+  @extend %shadow;
+}
+
+.pulse {
+  @include animation(0.8s);
+}

@@ -1,0 +1,93 @@
+@import "../../styles/Libs/Variables.scss";
+@import "../../styles/Libs/mixin.scss";
+%shadow {
+  box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
+}
+.History-chart-container {
+  @include flex(flex, center, center, column);
+  @include dimension(70, 92);
+}
+
+.Chart-content {
+  @include flex(flex, center, center, row);
+  @include dimension(90, 100);
+  position: relative;
+}
+
+.History-details-container {
+  @include flex(flex, space-evenly, center, row);
+  @include dimension(100, 16);
+}
+
+.Pop-container {
+  @include flex(flex, center, center, row);
+  @include dimension(33, 100);
+}
+
+.Cont-container {
+  @include flex(flex, center, center, row);
+  @include dimension(33, 100);
+}
+
+.Vac-container {
+  @include flex(flex, space-evenly, center, row);
+  @include dimension(33, 100);
+}
+
+.Pop-content {
+  @include flex(flex, space-evenly, center, row);
+  @include dimension(70, 100);
+  font-size: $screen-font-size-s;
+}
+
+.Cont-content {
+  @extend .Pop-content;
+}
+
+.Vac-content {
+  @extend .Pop-content;
+}
+
+.Syringe {
+  transform: rotate(226deg);
+  color: cadetblue;
+  cursor: pointer;
+  transition: ease-in 1s;
+}
+
+.Syringe-pulse {
+  @include animation(1s);
+  cursor: pointer;
+}
+
+.btn-container {
+  @include flex(flex, center, center, row);
+  @include dimension(5, 8);
+  position: absolute;
+  top: 90%;
+  left: -5%;
+  border-radius: 25px;
+  background: $secondaryColor;
+  @extend %shadow;
+  cursor: pointer;
+}
+.btn {
+  font-size: $screen-font-size-xs;
+  border: none;
+  background: $secondaryColor;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.History-bar-percent-content {
+    @include flex(flex, center, center, row);
+        @include dimension(90, 40);
+    align-items: center;
+}
+.History-pie-container {
+   @include flex(flex, center, center, column);
+    @include dimension(30, 90);   
+    background: $secondaryColor;
+    border-radius: 15px;
+}

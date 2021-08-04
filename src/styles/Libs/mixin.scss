@@ -1,0 +1,97 @@
+@import "./function.scss";
+
+@mixin dimension($w, $h) {
+  width: 1% * strip-unit($w);
+  height: 1% * strip-unit($h);
+}
+@mixin flex($flex, $justify, $align, $direction) {
+  display: $flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin animation($time) {
+  -ms-animation: pulse $time infinite;
+  -webkit-animation: pulse $time infinite;
+  -o-animation: pulse $time infinite;
+  -moz-animation: pulse $time infinite;
+  animation: pulse $time infinite;
+  @keyframes pulse {
+    0% {
+      opacity: 1;
+    }
+
+    40% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+@mixin rotate($time) {
+  animation: rotation $time infinite;
+  @keyframes rotation {
+    0% {
+      -webkit-transform: rotate(0deg) scale(0.8);
+      -moz-transform: rotate(0deg) scale(0.8);
+    }
+
+    50% {
+      -webkit-transform: rotate(360deg) scale(1.2);
+      -moz-transform: rotate(360deg) scale(1.2);
+    }
+
+    100% {
+      -webkit-transform: rotate(720deg) scale(0.8);
+      -moz-transform: rotate(720deg) scale(0.8);
+    }
+  }
+}
+
+@mixin one($time) {
+  animation: ball1 $time infinite;
+
+  @keyframes ball1 {
+    0% {
+      box-shadow: 30px 0 0 #f8b334;
+    }
+
+    50% {
+      box-shadow: 0 0 0 #f8b334;
+      margin-bottom: 0;
+      -webkit-transform: translate(15px, 15px);
+      -moz-transform: translate(15px, 15px);
+    }
+
+    100% {
+      box-shadow: 30px 0 0 #f8b334;
+      margin-bottom: 10px;
+    }
+  }
+}
+
+@mixin two($time) {
+  animation: ball2 $time infinite;
+
+  @keyframes ball2 {
+    0% {
+      box-shadow: 30px 0 0 #97bf0d;
+    }
+
+    50% {
+      box-shadow: 0 0 0 #97bf0d;
+      margin-top: -20px;
+      -webkit-transform: translate(15px, 15px);
+      -moz-transform: translate(15px, 15px);
+    }
+
+    100% {
+      box-shadow: 30px 0 0 #97bf0d;
+      margin-top: 0;
+    }
+  }
+}
