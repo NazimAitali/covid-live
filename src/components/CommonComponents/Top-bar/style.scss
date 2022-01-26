@@ -10,15 +10,17 @@
 }
 
 .Top-left-content {
-  @include flex(flex, flex-start, center, row);
+  @include flex(flex, space-evenly, center, row);
   @include dimension(100, 100);
 }
 
 .Title-home-top-container {
-  @include flex(flex, space-evenly, center, row);
   @include dimension(28, 100);
 }
-
+.Title-home-top-content {
+  @include flex(flex, space-evenly, center, row);
+  @include dimension(100, 100);
+}
 .Title-home-top {
   @include flex(flex, flex-end, center, row);
   @include dimension(65, 100);
@@ -28,14 +30,51 @@
   @include flex(flex, center, center, row);
   @include dimension(20, 100);
 }
-
-.home-top-img {
-  @include dimension(25, 45);
+.Top-contact-content {
+  @include dimension(35, 100);
+  @include flex(flex, flex-end, center, row);
+}
+.li {
+  cursor: pointer;
+  &:hover {
+    color: #0e76a8;
+  }
+}
+.git {
+  cursor: pointer;
+  &:hover {
+    color: #171515;
+  }
+}
+.twitter {
+  cursor: pointer;
+  &:hover {
+    color: #00acee;
+  }
 }
 
-.home-top-img-container {
-  background-color: $secondaryColor;
-  @include dimension(30, 70);
-  @include flex(flex, center, center, row);
+.Top-contact {
+  @include flex(flex, space-evenly, center, row);
+  @include dimension(50, 100);
+  font-size: $screen-font-size-xs;
+}
+
+.Top-contact a {
+  text-decoration: none;
+  color: inherit;
+}
+.home-top-img {
+  width: 20px;
+  height: 20px;
+  border-radius: 15px;
+}
+.home-top-img-content {
+  @include dimension(80, 80);
+  @include flex(flex, space-evenly, center, row);
   border-radius: 10px;
+  background-color: $secondaryColor;
+}
+.home-top-img-container {
+  @include dimension(35, 100);
+  @include flex(flex, center, center, row);
 }

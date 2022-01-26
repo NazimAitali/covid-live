@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { GoPrimitiveDot } from "react-icons/go";
 import "leaflet/dist/leaflet.css";
 import Mapcontainer from "./Map-container";
-import { pushInMyMap } from "../../../functions/push";
+import { pushInMyMap } from "../../../functions/InjectGeoJsonFunction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../../CommonComponents/Loder";
 import { SET_COVID } from "../../../redux/actions/covid";
@@ -22,7 +22,8 @@ const Map = () => {
       });
     };
     push();
-  }, [covid19Data]); // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [covid19Data]);
 
   return (
     <div className="container">
@@ -30,7 +31,7 @@ const Map = () => {
         <div className="Map-title-content">
           <div className="Map-title">
             {" "}
-            <div>Covid 19 - Infected all time</div>
+            <div>Infected all time</div>
           </div>
         </div>
         <div className="Map-color-content">

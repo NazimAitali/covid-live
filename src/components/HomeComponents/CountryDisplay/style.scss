@@ -4,43 +4,59 @@
 %shadow {
   box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
 }
+.Global-research-container {
+  @include dimension(100, 100);
+  @include flex(flex, space-evenly, center, column);
+}
+.Select-title {
+  font-size: $screen-font-size-xs;
+  @include dimension(100, 50);
+  @include flex(flex, center, center, row);
+  color: $thirdlyColor;
+}
+.Select-global {
+  @include dimension(70, 50);
+  @include flex(flex, center, center, row);
+}
 .Country-display {
   @include dimension(100, 25);
   @include flex(flex, space-evenly, center, row);
+  position: relative;
+  top: -8%;
 }
-
+.Top {
+  top: 0%;
+}
 .Box-display {
   @include dimension(27, 80);
   @include flex(flex, center, center, column);
   border-radius: 15px;
 }
-
 .Box-top-content {
   @include flex(flex, center, center, row);
   @include dimension(100, 35);
 }
-
 .Box-top {
   @include dimension(85, 100);
   @include flex(flex, space-between, center, row);
   font-weight: 500;
+  font-size: $screen-font-size-xs;
 }
-
 .Box-bottom {
   @include dimension(85, 65);
   @include flex(flex, flex-start, center, row);
-  font-size:$screen-font-size-l;
+  font-size: $screen-font-size-s;
   font-weight: 700;
 }
-
+.Box-period {
+  font-size: $screen-font-size-xxs;
+}
 .actif {
   color: $box-indectedLight;
 }
-
 .recovered {
   color: $box-recoveredLight;
 }
-
 .death {
   color: $box-deathsLight;
 }
@@ -49,17 +65,21 @@
   background-color: $box-indected;
   @extend %shadow;
 }
-
 .recovered-box {
   background-color: $box-recovered;
   @extend %shadow;
 }
-
 .death-box {
   background-color: $box-deaths;
   @extend %shadow;
 }
-
 .pulse {
   @include animation(0.8s);
+}
+.No-data {
+  @include dimension(100, 100);
+  @include flex(flex, center, center, row);
+  img {
+    @include dimension(22, 60);
+  }
 }

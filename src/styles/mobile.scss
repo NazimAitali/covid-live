@@ -1,0 +1,231 @@
+@import "../styles/Libs/Variables.scss";
+@import "../styles/Libs/mixin.scss";
+@media only screen and (max-width: $tab) {
+  //*********************************HOME************************************/
+  .App {
+    overflow-y: auto;
+  }
+  .Global-container {
+    flex-direction: column;
+  }
+  .Home-container {
+    @include dimension(100, 90);
+  }
+  .Home-top-container {
+    @include dimension(100, 20);
+  }
+  .Home-top-none {
+    display: none;
+  }
+  .Top-left-content {
+    flex-direction: column-reverse;
+  }
+  .Title-home-top {
+    font-size: $mobile-font-size-m;
+    justify-content: center;
+  }
+  .home-top-img-container {
+    width: 155px;
+    height: 45px;
+  }
+  .Title-home-top-container {
+    @include dimension(100, 50);
+  }
+  .Top-right-content {
+    @include dimension(100, 50);
+  }
+  .Top-contact-content {
+    display: none;
+  }
+  .Top-contact {
+    font-size: $mobile-font-size-l;
+  }
+  .Title-none {
+    display: none;
+  }
+  .Menu {
+    @include dimension(100, 100);
+    border-radius: 0%;
+    flex-direction: row;
+    padding: 0;
+    position: relative;
+  }
+  .Logo {
+    max-width: 40px;
+  }
+  .Mobile-menu {
+    @include dimension(50, 100);
+    @include flex(flex, space-evenly, center, row);
+  }
+  .Menu-container {
+    @include dimension(100, 10);
+    position: sticky;
+    top: 0%;
+    z-index: 2000;
+  }
+  .Mobile-menu {
+    @include dimension(50, 100);
+    @include flex(flex, center, center, column);
+    position: relative;
+  }
+  .menu-checkbox {
+    display: none;
+  }
+  .bar {
+    @include dimension(11, 5);
+    background-color: $primaryColorLight;
+    border-radius: 15px;
+    margin-bottom: 2%;
+  }
+  .menu-humb {
+    @include dimension(100, 100);
+    @include flex(flex, center, center, column);
+  }
+  .mobile-menu-content {
+    @include dimension(50, 200);
+    @include flex(flex, space-evenly, center, column);
+    position: absolute;
+    top: 110%;
+    border-radius: 15px;
+    z-index: 500;
+    background-color: $secondaryColor;
+    transition: right 0.2s ease-in-out;
+  }
+  .Liste {
+    @include dimension(50, 100);
+  }
+  .Logo-container {
+    @include dimension(100, 100);
+    height: 100%;
+  }
+  .Liste-btn {
+    display: none;
+  }
+  .mobile-list {
+    @include flex(flex, flex-start, center, row);
+    @include dimension(100, 30);
+  }
+
+  .Mobile-active {
+    font-size: $screen-font-size-s;
+    @include dimension(85, 100);
+    border-radius: 0px 30px 30px 0px;
+    background-color: $primaryColor;
+  }
+  .Home-bottom-container {
+    width: 100%;
+    height: 130vh;
+    flex-direction: column;
+  }
+  .Display-data-container {
+    @include dimension(100, 50);
+  }
+  .Display-data-global-container {
+    @include dimension(100, 50);
+  }
+  .Country-display {
+    @include dimension(100, 35);
+    position: relative;
+    top: 0%;
+  }
+  .Select-title {
+    font-size: $mobile-font-size-l;
+  }
+  .container {
+    @include dimension(100, 65);
+  }
+  .Box-display {
+    @include dimension(30, 85);
+  }
+  .Box-top {
+    font-size: $mobile-font-size-s;
+  }
+  .Box-period {
+    font-size: $mobile-font-size-s;
+  }
+  .Box-bottom {
+    font-size: $mobile-font-size-l;
+  }
+  .Map-title-container {
+    @include dimension(80, 10);
+  }
+  .Map-title-content,
+  .Map-color-content {
+    @include dimension(50, 100);
+  }
+  .Map-title {
+    font-size: $mobile-font-size-s;
+  }
+  .Map-color {
+    @include dimension(100, 100);
+  }
+  .Last {
+    @include dimension(50, 100);
+  }
+  .Global-situation-select {
+    @include dimension(90, 20);
+  }
+  .Display-data-list-containter {
+    @include dimension(90, 80);
+  }
+  //*********************************HISTORY************************************/
+  .History-global-container {
+    @include dimension(100, 90);
+  }
+  .History-container {
+    @include dimension(100, 90);
+    height: 130vh;
+    @include flex(flex, center, center, column);
+  }
+  .History-chart-container,
+  .History-pie-container {
+    @include dimension(100, 50);
+  }
+  .History-details-container {
+    @include dimension(100, 20);
+  }
+  .History-pie-content {
+    @include dimension(100, 55);
+  }
+  .Chart-content {
+    @include dimension(100, 80);
+  }
+  .Chart-content canvas {
+    height: 100% !important;
+    width: 95% !important;
+  }
+  .History-bar-percent-content canvas,
+  .History-pie-content canvas {
+    height: 100% !important;
+    width: 100% !important;
+  }
+  .btn-container {
+    top: 86%;
+    left: 5%;
+  }
+  .Src-vaccination {
+    font-size: $mobile-font-size-xs;
+    width: 100%;
+    top: 80%;
+    left: 11%;
+  }
+  .Pop-content,
+  .Vac-content,
+  .Cont-content {
+    font-size: $mobile-font-size-s;
+  }
+}
+/*************************************************************************************************************/
+@media only screen and (max-width: $mobile) {
+  .bar {
+    @include dimension(18, 5);
+    margin-bottom: 3%;
+  }
+  .Box-bottom {
+    justify-content: center;
+  }
+  .Menu-active {
+    font-size: $mobile-font-size-xs;
+    padding: 15%;
+  }
+}

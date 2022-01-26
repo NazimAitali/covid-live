@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import mapData from "../data/countries.json";
 import { useDispatch } from "react-redux";
-import { getDataToday, getDataYesterday, getlocalisation } from "../api";
+import { fetchDataToday, fetchDataYesterday } from "../api";
 import { SET_COVID } from "../redux/actions/covid";
 import Home from "../screen/Home";
 import Historique from "../screen/Historique";
@@ -20,10 +20,10 @@ function App() {
   };
   useEffect(() => {
     geoMap();
-    getlocalisation(dispatch);
-    getDataToday(dispatch);
-    getDataYesterday(dispatch);
+    fetchDataToday(dispatch);
+    fetchDataYesterday(dispatch);
   });
+
   return (
     <div className="Global-container">
       <Menu />

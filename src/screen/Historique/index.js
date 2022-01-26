@@ -1,15 +1,14 @@
 import React, { useEffect } from "react";
-import "./style.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { getHistoriqueData, fetchVaccination } from "../../api";
+import { fetchHistoriqueData, fetchVaccinationData } from "../../api";
 import Top from "../../components/CommonComponents/Top-bar";
 import BarChart from "../../components/HistoryComponents/BarChart/";
 import HbarChart from "../../components/HistoryComponents/HbarChart";
 import PieChart from "../../components/HistoryComponents/PieChart";
-
+import searchScreen from "../../img/search-screen.svg";
 const Historique = () => {
   const dispatch = useDispatch();
-  const { historiqueData, localisation, countryResearch } = useSelector(
+  const { localisation, countryResearch } = useSelector(
     (state) => state.coviData
   );
 
@@ -19,25 +18,28 @@ const Historique = () => {
     ? localisation.country
     : null;
   useEffect(() => {
-    getHistoriqueData(dispatch, position);
-    fetchVaccination(dispatch, position);
+    fetchHistoriqueData(dispatch, position);
+    fetchVaccinationData(dispatch, position);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [position]);
-  console.log(
-    historiqueData
-      ? Object.values(historiqueData.timeline.cases).slice(20)
-      : null
-  );
 
   return (
     <div className="History-global-container">
       <Top />
-      <div className="History-container">
-        <BarChart />
-        <div className="History-pie-container">
-          <HbarChart />
-          <PieChart />
+      {!countryResearch ? (
+        <div className="No-data-history">
+          <img src={searchScreen} alt="search" />
+          <span>Select a country on the home page</span>
         </div>
-      </div>
+      ) : (
+        <div className="History-container">
+          <BarChart />
+          <div className="History-pie-container">
+            <HbarChart />
+            <PieChart />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

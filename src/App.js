@@ -1,5 +1,5 @@
-import "./mobile.css";
 import "./App.scss";
+
 import Screen from "./routes";
 function App() {
   return (

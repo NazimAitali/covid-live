@@ -10,12 +10,16 @@
 
 .Logo-container {
   @include flex(flex, center, center, column);
+  @include dimension(100, 20);
 }
 
 .Logo {
-  @include dimension(75, 100);
+  width: 50px;
 }
-
+.Logo-spine {
+  width: 50px;
+  @include spiner(0.5s);
+}
 .Menu {
   @include flex(flex, center, center, column);
   @include dimension(60, 95);
@@ -27,39 +31,43 @@
 
 .Liste {
   @include flex(flex, flex-start, center, column);
-  @include dimension(80, 85);
+  @include dimension(100, 85);
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
 .Liste-btn {
-  @include flex(flex, flex-start, center, row);
-  @include dimension(100, 9);
-  margin-bottom: 20%;
-  margin-top: 20%;
+  @include flex(flex, flex-end, center, row);
+  @include dimension(100, 20);
 }
 
-.Liste-btn a {
+.Menu-list {
   @include flex(flex, center, center, row);
   @include dimension(100, 100);
   text-decoration: none;
   color: $thirdlyColor;
+  font-size: $screen-font-size-s;
+  transition: 0.1s ease-in;
 }
-
+.disable {
+  @include flex(flex, center, center, row);
+  @include dimension(100, 100);
+  text-decoration: none;
+  color: $primaryColor;
+  font-size: $screen-font-size-s;
+  cursor: none;
+  pointer-events: none;
+}
+.Menu-active {
+  font-size: $screen-font-size-s;
+  @include dimension(85, 40);
+  border-radius: 30px 0px 0px 30px;
+  background-color: $primaryColor;
+}
 .Mode-container {
   @include flex(flex, center, center, column);
   @include dimension(80, 10);
-}
-
-.Menu-icone {
-  font-size: 1.5em;
-}
-
-.Menu-active {
-  font-size: $screen-font-size-s;
-  background: $primaryColor;
-  border-radius: 10px;
 }
 
 .Mobile-menu {

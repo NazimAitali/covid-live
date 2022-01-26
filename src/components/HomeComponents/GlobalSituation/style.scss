@@ -4,7 +4,7 @@
   box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
 }
 .Display-data-global-content {
-  @include dimension(100, 95);
+  @include dimension(95, 90);
   @include flex(flex, center, center, column);
   @extend %shadow;
   background-color: $secondaryColor;
@@ -29,7 +29,7 @@
 .Country-container {
   @include dimension(95, 95);
   @include flex(flex, flex-start, center, column);
-  position:relative;
+  position: relative;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -69,8 +69,10 @@
 }
 
 .Country-flag {
-  @include dimension(12, 85);
-  margin-right:4%;
+  width: 20px;
+  height: 20px;
+  margin-right: 4%;
+  border-radius: 15px;
 }
 
 .Strong {
@@ -81,6 +83,7 @@
   background-color: $primaryColor;
   color: inherit;
   border-radius: 10px;
+  padding: 0% 5% 0% 5%;
   @include dimension(100, 100);
 }
 
@@ -131,7 +134,6 @@ select {
 .select::after {
   content: "\25BC";
   position: absolute;
-  top: -4px;
   right: 0;
   padding: 0 0.5em;
   background: $primaryColor;

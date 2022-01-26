@@ -1,0 +1,91 @@
+@media (prefers-color-scheme: light) {
+  .App {
+    background-color: $primaryColorLight;
+    color: $secondaryColor;
+  }
+  .home-top-img-container {
+    color: $primaryColorLight;
+  }
+  .home-top-img-content {
+    background-color: $secondaryColorLight;
+  }
+  .Display-data-global-content {
+    color: $primaryColorLight;
+    background-color: $secondaryColorLight;
+  }
+  .Sticky {
+    background-color: $secondaryColorLight;
+  }
+  .Back {
+    background-color: $thirdlyColorLight;
+    color: $primaryColor;
+  }
+  .Menu {
+    background-color: $secondaryColorLight;
+  }
+
+  .Menu-active {
+    background-color: $primaryColorLight;
+    color: $secondaryColorLight;
+  }
+  .select,
+  .select::after,
+  select {
+    background-color: $thirdlyColorLight;
+    color: $secondaryColor;
+  }
+  .Country-display {
+    color: $thirdlyColor;
+  }
+  .Select-title {
+    color: $secondaryColor;
+  }
+  .Box-bottom {
+    color: $thirdlyColorLight;
+  }
+  .actif-box {
+    background-color: $box-indectedLight;
+  }
+
+  .recovered-box {
+    background-color: $box-recoveredLight;
+  }
+
+  .death-box {
+    background-color: $box-deathsLight;
+  }
+
+  .actif {
+    color: $box-indected;
+  }
+  .recovered {
+    color: $box-recovered;
+  }
+
+  .death {
+    color: $box-deaths;
+  }
+  .custom .leaflet-popup-tip,
+  .custom .leaflet-popup-content-wrapper {
+    background-color: rgba($primaryColorLight, 0.8);
+    color: $primaryColor;
+  }
+  .Map-title-container {
+    background-color: rgba($primaryColorLight, 0.8);
+  }
+  .leaflet-container {
+    background: $primaryColorLight !important;
+  }
+  .leaflet-interactive:active {
+    fill: $box-recoveredLight;
+    fill-opacity: 0.2;
+  }
+  .History-pie-container {
+    background: $secondaryColorLight;
+    color: $primaryColorLight;
+  }
+  .btn {
+    background: $secondaryColorLight;
+    color: $primaryColorLight;
+  }
+}

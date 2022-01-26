@@ -1,8 +1,6 @@
 import { MapContainer, GeoJSON } from "react-leaflet";
-import { Cases } from "../../../../functions/dataMap";
-import { useSelector } from "react-redux";
+import { Cases } from "../../../../functions/MapFunction";
 const Mapcontainer = ({ geoJson }) => {
-  const { darkMode } = useSelector((state) => state.uiOptions);
   let center = {
     lat: 40,
     lng: 0,
@@ -27,7 +25,7 @@ const Mapcontainer = ({ geoJson }) => {
         center={center}
         zoom={1.5}
         minZoom={1.5}
-        scrollWheelZoom={true}
+        scrollWheelZoom={false}
         dragging={true}
         boxZoom={false}
       >

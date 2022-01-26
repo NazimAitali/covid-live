@@ -1,38 +1,27 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { Line } from "react-chartjs-2";
+import {
+  options,
+  dataSets,
+} from "../../../functions/ChartsFunction/ChartsFunction";
 
 const Vachart = () => {
   const { fetchVaccination } = useSelector((state) => state.coviData);
 
-  const options = {
-    animation: false,
-    scales: {
-      yAxes: [
-        {
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-    },
-  };
   const data = {
     labels: Object.keys(fetchVaccination.timeline),
     datasets: [
-      {
-        label: "Nombre total de doses administrées",
-        data: Object.values(fetchVaccination.timeline),
-        fill: false,
-        backgroundColor: "#00BB57",
-        borderColor: "#00441B",
-      },
+      dataSets(null, null, null, Object.values(fetchVaccination.timeline))[6],
     ],
   };
   return (
     <>
       {" "}
-      <Line data={data} options={options} />
+      <Line data={data} options={options()[1]} />
+      <a className="Src-vaccination" href="https://covid.ourworldindata.org">
+        Sourced from https://covid.ourworldindata.org
+      </a>
     </>
   );
 };

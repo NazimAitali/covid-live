@@ -1,6 +1,6 @@
 import { SET_COVID } from "../redux/actions/covid";
 
-const pushInMyMap = (covid19Data, geoJson,dispatch) => {
+const pushInMyMap = (covid19Data, geoJson, dispatch) => {
   if (geoJson) {
     geoJson.forEach((country) => {
       const covidCountry = covid19Data.find(
@@ -17,15 +17,14 @@ const pushInMyMap = (covid19Data, geoJson,dispatch) => {
         country.properties.teste = covidCountry.tests;
         country.properties.population = covidCountry.population;
         country.properties.flag = covidCountry.countryInfo.flag;
-         dispatch({
-           type: SET_COVID,
-           payload: {
-             loaderjson: true,
-           },
-         });
+        dispatch({
+          type: SET_COVID,
+          payload: {
+            loaderjson: true,
+          },
+        });
       }
     });
-    console.log("pushed");
   }
 };
 

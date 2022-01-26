@@ -2,9 +2,8 @@ import React from "react";
 import { AiOutlineGlobal } from "react-icons/ai";
 import { SET_COVID } from "../../../redux/actions/covid";
 import { useDispatch, useSelector } from "react-redux";
-import { displayList, sort } from "../../../functions/displayListe";
+import { displayList, sort } from "../../../functions/sortFunction";
 import Loader from "../../CommonComponents/Loder";
-
 const GlobalSituation = () => {
   const { covid19Data, listDisplay, sortDisplay } = useSelector(
     (state) => state.coviData
@@ -26,11 +25,16 @@ const GlobalSituation = () => {
       },
     });
   };
+
   return (
     <div className="Display-data-global-content">
       <div className="Global-situation-select">
         <div className="Display-data-research-containter select">
-          <select name="display" onChange={onChangeDisplay}>
+          <select
+            name="display"
+            onChange={onChangeDisplay}
+            defaultValue="cases"
+          >
             <option value="cases">Total infected</option>
             <option value="todayCases">Today infected</option>
             <option value="deaths">Total deaths</option>
@@ -40,10 +44,11 @@ const GlobalSituation = () => {
           </select>
         </div>
         <div className="select">
-          <select name="sort" onChange={onChangeSort}>
-            <option value="up">UP</option>
-            <option value="down">DOWN</option>S
-            <option value="apha">ALPHA</option>
+          <select name="sort" onChange={onChangeSort} defaultValue="up">
+            <option value="up">Descending</option>
+            <option value="down">Ascending</option>S
+            <option value="atz">A to Z</option>
+            <option value="zta">Z to A</option>
           </select>
         </div>
       </div>
@@ -74,7 +79,10 @@ const GlobalSituation = () => {
                 .map((covid, i) => (
                   <li key={i} className="Country-content">
                     <div className="Country-data">
-                      {displayList(listDisplay, covid).toLocaleString("en")}
+                      {displayList(listDisplay, covid).toLocaleString("en") ===
+                      "0"
+                        ? "Pending ..."
+                        : displayList(listDisplay, covid).toLocaleString("en")}
                     </div>
                     <div className="Country-name">
                       <img
@@ -82,6 +90,7 @@ const GlobalSituation = () => {
                         src={covid.countryInfo.flag}
                         alt="flag"
                       />
+
                       <div>{covid.country.substring(0, 25)}</div>
                     </div>
                   </li>
@@ -97,4 +106,3 @@ const GlobalSituation = () => {
 };
 
 export default GlobalSituation;
-//covid19All.cases.toLocaleString("en")

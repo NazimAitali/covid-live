@@ -4,7 +4,6 @@
   box-shadow: 0px 0px 32px -19px rgba(0, 0, 0, 0.3);
 }
 .History-global-container {
-  @include flex(flex, center, center, column);
   @include dimension(93, 100);
 }
 .History-container {
@@ -13,11 +12,23 @@
 }
 .History-pie-content {
   @include flex(flex, center, center, row);
-  @include dimension(80, 60);
+  @include dimension(80, 58);
 }
 .Chart {
   @include flex(flex, center, center, row);
   @include dimension(33, 100);
+}
+.No-data-history {
+  @include flex(flex, center, center, column);
+  @include dimension(98, 92);
+}
+.No-data-history img {
+  @include dimension(30, 80);
+}
+.No-data-history span {
+  @include dimension(100, 20);
+  @include flex(flex, center, flex-start, row);
+  font-size: $screen-font-size-s;
 }
 /**************************Charts***************************/
 @import "../../components/HistoryComponents/style.scss";

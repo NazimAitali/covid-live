@@ -107,3 +107,9 @@
 .Last {
   @include dimension(20, 100);
 }
+.Chart-content {
+  canvas {
+    height: 400px !important;
+    width: 830px !important;
+  }
+}

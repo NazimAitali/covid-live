@@ -1,0 +1,134 @@
+   body {
+       background-color: #1f2124;
+       color: #f5f5f5;
+       font-size: 2.5vmax;
+       margin: 0;
+       padding: 0;
+       width: 100vw;
+       height: 100vh;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .Global-container {
+       width: 100%;
+       height: 100%;
+       display: flex;
+   }
+
+   .Menu-container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: row;
+       width: 7%;
+       height: 100%;
+   }
+
+   .Home-container {
+       width: 93%;
+       height: 100%;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .Home-content {
+       width: 93%;
+       height: 50%;
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       flex-direction: column;
+   }
+
+   .Menu {
+       display: flex;
+       justify-content: flex-start;
+       align-items: center;
+       flex-direction: column;
+       width: 60%;
+       height: 95%;
+       background-color: #383a3f;
+       border-radius: 10px;
+       margin: 0 auto;
+   }
+
+   .Liste {
+       display: flex;
+       justify-content: space-evenly;
+       align-items: center;
+       flex-direction: column;
+       width: 100%;
+       height: 70%;
+       padding: 0;
+       margin: 0;
+       list-style: none;
+   }
+
+   .Liste-btn a {
+       cursor: pointer;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       width: 100%;
+       height: 20%;
+       cursor: pointer;
+   }
+
+   .linked:hover {
+       color: #0e76a8;
+       filter: drop-shadow(0 0 0.3rem #EF5261);
+   }
+
+   .git:hover {
+       color: #171515;
+       filter: drop-shadow(0 0 0.3rem #EF5261);
+   }
+
+   .twitter:hover {
+       color: #00acee;
+       filter: drop-shadow(0 0 0.3rem #EF5261);
+   }
+
+   .Logo-container {
+       display: flex;
+       justify-content: center;
+       align-items: center;
+       flex-direction: column;
+       width: 100%;
+       height: 20%;
+   }
+
+   .Social {
+       width: 50%;
+
+   }
+
+   .Logo {
+       width: 70%;
+       filter: grayscale(100%);
+   }
+
+   .btn {
+       border: none;
+       border-radius: 15px;
+       width: 10%;
+       height: 10%;
+
+   }
+
+   @media (prefers-color-scheme: light) {
+       body {
+           background-color: #faf8ef;
+           color: #1f2124;
+       }
+
+       .Menu {
+           background-color: #012a3b;
+       }
+
+   }

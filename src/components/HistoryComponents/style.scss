@@ -37,7 +37,7 @@
 .Pop-content {
   @include flex(flex, space-evenly, center, row);
   @include dimension(70, 100);
-  font-size: $screen-font-size-s;
+  font-size: $screen-font-size-xs;
 }
 
 .Cont-content {
@@ -56,38 +56,49 @@
 }
 
 .Syringe-pulse {
-  @include animation(1s);
+  @include animation(2s);
   cursor: pointer;
 }
 
 .btn-container {
   @include flex(flex, center, center, row);
-  @include dimension(5, 8);
   position: absolute;
   top: 90%;
   left: -5%;
   border-radius: 25px;
-  background: $secondaryColor;
-  @extend %shadow;
   cursor: pointer;
 }
 .btn {
-  font-size: $screen-font-size-xs;
+  @include flex(flex, center, center, row);
+  font-size: $screen-font-size-xxs;
   border: none;
   background: $secondaryColor;
   color: inherit;
   margin: 0;
-  padding: 0;
+  padding: 60%;
+  border-radius: 50%;
   cursor: pointer;
+  @extend %shadow;
 }
 .History-bar-percent-content {
-    @include flex(flex, center, center, row);
-        @include dimension(90, 40);
-    align-items: center;
+  @include flex(flex, center, center, row);
+  @include dimension(90, 38);
+  align-items: center;
 }
 .History-pie-container {
-   @include flex(flex, center, center, column);
-    @include dimension(30, 90);   
-    background: $secondaryColor;
-    border-radius: 15px;
+  @include flex(flex, center, center, column);
+  @include dimension(30, 90);
+  background: $secondaryColor;
+  border-radius: 15px;
+}
+.Src-vaccination {
+  @include flex(flex, center, center, row);
+  @include dimension(50, 10);
+  position: absolute;
+  top: 93%;
+  text-decoration: none;
+  color: inherit;
+  &hover {
+    color: $fourthColor;
+  }
 }

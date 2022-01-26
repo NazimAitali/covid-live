@@ -1,22 +1,32 @@
-$primaryColor: #0d1117;
-$secondaryColor: #161b22;
+$primaryColor: #1f2124;
+$secondaryColor: #383a3f;
 $thirdlyColor: #f5f5f5;
+$fourthColor: #40686d;
+/************************/
+$primaryColorLight: #faf8ef;
+$secondaryColorLight: #012a3b;
+$thirdlyColorLight: #e0e3da;
 
-$loaderColorOne: #00a690;
-$loaderColorTwo: #862e9c;
-$loaderColorThree: #f5f5f5;
-$loaderColorFour: #f5f5f5;
-
-$box-indected: #041c37;
-$box-recovered: #05461f;
-$box-deaths: #460505;
-
-$box-indectedLight: #0b5bc1;
-$box-recoveredLight: #2fba62;
-$box-deathsLight: #db1715;
+$box-indected: #002855;
+$box-recovered: #004b1e;
+$box-deaths: #4e0000;
+$vaccination: #25685e;
+/************************/
+$box-indectedLight: #2b5792;
+$box-recoveredLight: #378353;
+$box-deathsLight: #913938;
 
 $screen-font-size-l: calc(0.3 * 10vmax);
 $screen-font-size-s: calc(0.2 * 10vmax);
-$screen-font-size-xs: calc(0.1 * 10vmax);
-
-$mobile-font-size: calc(0.01 * 10vmin);
+$screen-font-size-xs: calc(0.16 * 10vmax);
+$screen-font-size-xxs: calc(0.1 * 10vmax);
+/*****************************/
+$mobile-font-size-l: calc(0.6 * 10vmin);
+$mobile-font-size-m: calc(0.4 * 10vmin);
+$mobile-font-size-s: calc(0.3 * 10vmin);
+$mobile-font-size-xs: calc(0.2 * 10vmin);
+$mobile-font-size-xxs: calc(0.1 * 10vmin);
+/******************************/
+$screen: 1200px !default;
+$tab: 992px !default;
+$mobile: 600px;

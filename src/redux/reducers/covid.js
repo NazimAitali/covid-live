@@ -11,6 +11,7 @@ const initialState = {
   countryResearch: false,
   loaderjson: true,
   loadercovid: true,
+  todayAvailable: true,
 };
 
 const covidReducer = (state = initialState, action) => {

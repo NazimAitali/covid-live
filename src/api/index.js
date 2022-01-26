@@ -3,7 +3,7 @@ import { SET_COVID } from "../redux/actions/covid";
 
 const url = "https://disease.sh/v3/covid-19";
 
-const getDataToday = async (dispatch) => {
+const fetchDataToday = async (dispatch) => {
   try {
     const response = await axios.get(`${url}/countries?yesterday=false`);
     if (!response || response.status !== 200) {
@@ -20,7 +20,7 @@ const getDataToday = async (dispatch) => {
     console.log(err.message);
   }
 };
-const getDataYesterday = async (dispatch) => {
+const fetchDataYesterday = async (dispatch) => {
   try {
     const response = await axios.get(`${url}/countries?yesterday=true`);
     if (!response || response.status !== 200) {
@@ -37,7 +37,7 @@ const getDataYesterday = async (dispatch) => {
     console.log(err.message);
   }
 };
-const getHistoriqueData = async (dispatch, country) => {
+const fetchHistoriqueData = async (dispatch, country) => {
   try {
     const response = await axios.get(
       `${url}/historical/${country}?lastdays=10`
@@ -55,7 +55,7 @@ const getHistoriqueData = async (dispatch, country) => {
     console.log(err.message);
   }
 };
-const fetchVaccination = async (dispatch, country) => {
+const fetchVaccinationData = async (dispatch, country) => {
   try {
     const reponse = await axios.get(
       `${url}/vaccine/coverage/countries/${country}?lastdays=10&fullData=false`
@@ -74,29 +74,9 @@ const fetchVaccination = async (dispatch, country) => {
   }
 };
 
-const getlocalisation = async (dispatch) => {
-  try {
-    const response = await axios.get("https://extreme-ip-lookup.com/json/");
-    if (!response || response.status !== 200) {
-      console.log("no data");
-    }
-
-    dispatch({
-      type: SET_COVID,
-      payload: {
-        localisation: response.data,
-        localisationLoder: false,
-      },
-    });
-  } catch (err) {
-    console.log(err.message);
-  }
-};
-
 export {
-  getDataYesterday,
-  getlocalisation,
-  getDataToday,
-  getHistoriqueData,
-  fetchVaccination,
+  fetchDataToday,
+  fetchDataYesterday,
+  fetchHistoriqueData,
+  fetchVaccinationData,
 };

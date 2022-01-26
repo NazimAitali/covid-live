@@ -1,7 +1,7 @@
 const colorLayer = (key) => {
   switch (true) {
     case key === undefined:
-      return "black";
+      return "Gray";
     case key > 1 && key <= 1000:
       return "#3db657";
     case key > 1000 && key <= 10000:
@@ -24,5 +24,4 @@ const colorLayer = (key) => {
       return;
   }
 };
-
 export { colorLayer };

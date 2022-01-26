@@ -2,7 +2,9 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_COVID } from "../../../../redux/actions/covid";
 const ReasearchBar = () => {
-  const { localisation, covid19Data } = useSelector((state) => state.coviData);
+  const { covid19Data, countryResearch } = useSelector(
+    (state) => state.coviData
+  );
   const countryListe = covid19Data
     ? covid19Data.map((countryListe) => countryListe.country)
     : null;
@@ -17,15 +19,16 @@ const ReasearchBar = () => {
   };
   return (
     <div className="select">
-      <select name="sort" onChange={onChangeliveDisplay}>
-        {localisation ? (
-          <option selected disabled value={localisation.country}>
-            {localisation.country}
-          </option>
-        ) : null}{" "}
+      <select
+        name="sort"
+        onChange={onChangeliveDisplay}
+        defaultValue={countryResearch}
+      >
         {countryListe
-          ? countryListe.map((option,i) => (
-              <option key={i} value={option}>{option}</option>
+          ? countryListe.map((option, i) => (
+              <option key={i} value={option}>
+                {option}
+              </option>
             ))
           : null}
       </select>

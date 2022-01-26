@@ -1,8 +1,9 @@
 import { SET_UI } from "../actions/ui";
 const initialState = {
-  selectMenu: 1,
   ShowVarChart: false,
   ChangeChart: false,
+  selectLines: 1,
+  mobileMenu: "-51%",
 };
 
 const uiReducer = (state = initialState, action) => {

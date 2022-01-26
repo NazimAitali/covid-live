@@ -1,4 +1,4 @@
-import { colorLayer } from "./colorLayer";
+import { colorLayer } from "./ColorMapFunction";
 
 const Cases = (country, layer) => {
   layer.options.fillColor = colorLayer(country.properties.totalCases);

@@ -1,0 +1,66 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="./icons/192.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="apple-touch-icon" href="./icons/192.png" />
+    <link
+      rel="stylesheet"
+      href="fonts/material-icon/css/material-design-iconic-font.min.css"
+    />
+    <title>Covid live OFFLINE</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="Global-container">
+      <div class="Menu-container">
+        <nav class="Menu">
+          <ul class="Liste">
+            <li class="Logo-container">
+              <img class="Logo" src="./icons/192.png" alt="logo" />
+            </li>
+            <li class="Liste-btn">
+              <a
+                class="linked"
+                href="https://www.linkedin.com/in/nazimaitali/"
+                target="_blank"
+                rel="noreferrer"
+                ><img class="Social" src="./icons/linkedin.png" alt="linkedin"/></a>
+            </li>
+            <li class="Liste-btn">
+              <a
+                class="git"
+                href="https://github.com/NazimAitali"
+                target="_blank"
+                rel="noreferrer"
+                ><img class="Social" src="./icons/github.png" alt="github"/></a></a>
+            </li>
+            <li class="Liste-btn">
+              <a
+                class="twitter"
+                href="https://twitter.com/nazimaitali/"
+                target="_blank"
+                rel="noreferrer"
+                ><img class="Social" src="./icons/twitter.png" alt="twitter"/></a></a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <div class="Home-container">
+    <div class="Home-content">
+        <img src="./icons/no-wifi.png" alt="no-wifi-img"/ >
+        <div>You don't have an internet connection</div>
+        <div>Please check your network connection and try angain</div>
+        <button class="btn" onClick={reload()}>Refresh Page</button>
+    </div>
+      </div>
+    
+    </div>
+  </body>
+  <script>
+  const reload =()=>{
+  window.location.reload()
+  };</script>
+</html>

@@ -2,16 +2,24 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Bar, Line } from "react-chartjs-2";
 import {
-  GiEarthAfricaEurope,
-  GiEarthAmerica,
-  GiEarthAsiaOceania,
-} from "react-icons/gi";
+  continentDisplay,
+  ShowVaccination,
+  changeCharts,
+  nextline,
+  previousline,
+  dataSets,
+  options,
+} from "../../../functions/ChartsFunction/ChartsFunction";
 import { IoPeopleCircle } from "react-icons/io5";
 import { RiSyringeFill, RiSyringeLine } from "react-icons/ri";
-import { AiOutlineBarChart, AiOutlineLineChart } from "react-icons/ai";
+import {
+  AiOutlineBarChart,
+  AiOutlineLineChart,
+  AiOutlineArrowLeft,
+  AiOutlineArrowRight,
+} from "react-icons/ai";
 import Loader from "../../../components/CommonComponents/Loder";
 import Vachart from "./vaChart";
-import { SET_UI } from "../../../redux/actions/ui";
 const BarChart = () => {
   const dispatch = useDispatch();
   const {
@@ -22,140 +30,39 @@ const BarChart = () => {
     covid19Data,
     fetchVaccination,
   } = useSelector((state) => state.coviData);
-  const { ShowVarChart, ChangeChart } = useSelector((state) => state.uiOptions);
-  console.log(
-    historiqueData ? Object.keys(historiqueData.timeline.cases) : null
+  const { ShowVarChart, ChangeChart, selectLines } = useSelector(
+    (state) => state.uiOptions
   );
   /******************************************* */
-  const dataFirstBar = {
-    label: "Total Infected",
-    data: historiqueData ? Object.values(historiqueData.timeline.cases) : null,
-    backgroundColor: "#041C37",
-  };
-  const dataSecondBar = {
-    label: "Total Recovered",
-    data: historiqueData
-      ? Object.values(historiqueData.timeline.recovered)
-      : null,
-    backgroundColor: "#05461F",
-  };
-  const dataThredBar = {
-    label: "Total Deaths",
-    data: historiqueData ? Object.values(historiqueData.timeline.deaths) : null,
-    backgroundColor: "#460505",
-  };
+  const timelineCases = historiqueData
+    ? Object.values(historiqueData.timeline.cases)
+    : null;
+  const timelineRecovered = historiqueData
+    ? Object.values(historiqueData.timeline.recovered)
+    : null;
+  const timelineDeaths = historiqueData
+    ? Object.values(historiqueData.timeline.deaths)
+    : null;
 
   const dataBar = {
-    labels: historiqueData ? Object.keys(historiqueData.timeline.cases) : null,
-    datasets: [dataFirstBar, dataSecondBar, dataThredBar],
+    labels: timelineCases ? Object.keys(historiqueData.timeline.cases) : null,
+    datasets: [
+      dataSets(timelineCases, timelineRecovered, timelineDeaths)[0],
+      dataSets(timelineCases, timelineRecovered, timelineDeaths)[1],
+      dataSets(timelineCases, timelineRecovered, timelineDeaths)[2],
+    ],
   };
-
-  const optionsBar = {
-    animation: false,
-    scales: {
-      yAxes: [
-        {
-          stacked: true,
-          ticks: {
-            beginAtZero: true,
-          },
-        },
-      ],
-      xAxes: [
-        {
-          stacked: true,
-        },
-      ],
-    },
+  const dataLineCases = {
+    labels: timelineCases ? Object.keys(historiqueData.timeline.cases) : null,
+    datasets: [dataSets(timelineCases, timelineRecovered, timelineDeaths)[3]],
   };
-  /******************************************* */
-  const dataFirstLine = {
-    label: "Total Infected",
-    data: historiqueData ? Object.values(historiqueData.timeline.cases) : null,
-    lineTension: 0,
-    fill: false,
-    borderColor: "red",
-    yAxisID: "A",
+  const dataLineRecovered = {
+    labels: timelineCases ? Object.keys(historiqueData.timeline.cases) : null,
+    datasets: [dataSets(timelineCases, timelineRecovered, timelineDeaths)[4]],
   };
-  const dataSecondLine = {
-    label: "Total Recovered",
-    data: historiqueData
-      ? Object.values(historiqueData.timeline.recovered)
-      : null,
-    lineTension: 0,
-    fill: false,
-    borderColor: "blue",
-    yAxisID: "B",
-  };
-  const dataThredLine = {
-    label: "Total Deaths",
-    data: historiqueData ? Object.values(historiqueData.timeline.deaths) : null,
-    lineTension: 0,
-    fill: false,
-    borderColor: "green",
-    yAxisID: "C",
-  };
-  const dataLine = {
-    labels: historiqueData ? Object.keys(historiqueData.timeline.cases) : null,
-    datasets: [dataFirstLine, dataSecondLine, dataThredLine],
-  };
-  const optionsLine = {
-    animation: false,
-    legend: {
-      display: true,
-      position: "top",
-      labels: {
-        boxWidth: 80,
-        fontColor: "black",
-      },
-    },
-    scales: {
-      A: {
-        type: "linear",
-        display: true,
-        position: "left",
-      },
-      B: {
-        type: "linear",
-        display: true,
-        position: "left",
-      },
-      C: {
-        type: "linear",
-        display: true,
-        position: "left",
-      },
-    },
-  };
-
-  const continent = (covid) => {
-    switch (true) {
-      case covid === "Africa" || covid === "Europe":
-        return <GiEarthAfricaEurope />;
-      case covid === "Asia" || covid === "Australia-Oceania":
-        return <GiEarthAsiaOceania />;
-      case covid === "North America" || covid === "South America":
-        return <GiEarthAmerica />;
-      default:
-        break;
-    }
-  };
-  const ShowVac = () => {
-    dispatch({
-      type: SET_UI,
-      payload: {
-        ShowVarChart: ShowVarChart ? false : true,
-      },
-    });
-  };
-
-  const changeCharts = () => {
-    dispatch({
-      type: SET_UI,
-      payload: {
-        ChangeChart: ChangeChart ? false : true,
-      },
-    });
+  const dataLineDeaths = {
+    labels: timelineCases ? Object.keys(historiqueData.timeline.cases) : null,
+    datasets: [dataSets(timelineCases, timelineRecovered, timelineDeaths)[5]],
   };
   return (
     <div className="History-chart-container">
@@ -164,11 +71,11 @@ const BarChart = () => {
           {loadercovid ? (
             <Loader />
           ) : covid19Data ? (
-            covid19Data.map((covid) =>
+            covid19Data.map((covid, i) =>
               covid.country ===
               (countryResearch ? countryResearch : localisation.country) ? (
-                <div className="Pop-content">
-                  {continent(covid.continent)}
+                <div className="Pop-content" key={i}>
+                  {continentDisplay(covid.continent)}
                   {covid.continent}{" "}
                 </div>
               ) : null
@@ -181,10 +88,10 @@ const BarChart = () => {
           {loadercovid ? (
             <Loader />
           ) : covid19Data ? (
-            covid19Data.map((covid) =>
+            covid19Data.map((covid, i) =>
               covid.country ===
               (countryResearch ? countryResearch : localisation.country) ? (
-                <div className="Cont-content">
+                <div className="Cont-content" key={i}>
                   <IoPeopleCircle />
                   {covid.population.toLocaleString("en")}
                 </div>
@@ -200,9 +107,15 @@ const BarChart = () => {
           ) : fetchVaccination ? (
             <div className="Vac-content">
               {ShowVarChart ? (
-                <RiSyringeLine className="Syringe" onClick={ShowVac} />
+                <RiSyringeLine
+                  className="Syringe"
+                  onClick={() => ShowVaccination(dispatch, ShowVarChart)}
+                />
               ) : (
-                <RiSyringeFill className="Syringe-pulse" onClick={ShowVac} />
+                <RiSyringeFill
+                  className="Syringe-pulse"
+                  onClick={() => ShowVaccination(dispatch, ShowVarChart)}
+                />
               )}
 
               {Object.values(fetchVaccination.timeline)[9].toLocaleString("en")}
@@ -213,23 +126,63 @@ const BarChart = () => {
         </div>
       </div>
       <div className="Chart-content">
-        <div className="btn-container">
-          {ChangeChart ? (
-            <button className="btn" onClick={changeCharts}>
-              <AiOutlineBarChart />
-            </button>
-          ) : (
-            <button className="btn" onClick={changeCharts}>
-              <AiOutlineLineChart />
-            </button>
-          )}
-        </div>
+        {ShowVarChart ? null : (
+          <div className="btn-container">
+            {ChangeChart ? (
+              <button
+                className="btn"
+                onClick={() => changeCharts(dispatch, ChangeChart)}
+              >
+                <AiOutlineBarChart />
+              </button>
+            ) : (
+              <button
+                className="btn"
+                onClick={() => changeCharts(dispatch, ChangeChart)}
+              >
+                <AiOutlineLineChart />
+              </button>
+            )}
+          </div>
+        )}{" "}
+        {!ShowVarChart ? (
+          !ChangeChart ? null : (
+            <>
+              <div className="btn-container" style={{ left: "98%" }}>
+                {selectLines < 3 ? (
+                  <button
+                    className="btn"
+                    onClick={() => nextline(dispatch, selectLines)}
+                  >
+                    <AiOutlineArrowRight />
+                  </button>
+                ) : null}
+              </div>
+              <div className="btn-container" style={{ left: "92%" }}>
+                {selectLines > 1 ? (
+                  <button
+                    className="btn"
+                    onClick={() => previousline(dispatch, selectLines)}
+                  >
+                    <AiOutlineArrowLeft />
+                  </button>
+                ) : null}
+              </div>
+            </>
+          )
+        ) : null}
         {ShowVarChart ? (
           <Vachart />
         ) : ChangeChart ? (
-          <Line data={dataLine} options={optionsLine} />
+          selectLines === 1 ? (
+            <Line data={dataLineCases} options={options()[1]} />
+          ) : selectLines === 2 ? (
+            <Line data={dataLineRecovered} options={options()[1]} />
+          ) : selectLines === 3 ? (
+            <Line data={dataLineDeaths} options={options()[1]} />
+          ) : null
         ) : (
-          <Bar data={dataBar} options={optionsBar} />
+          <Bar data={dataBar} options={options()[1]} />
         )}
       </div>
     </div>

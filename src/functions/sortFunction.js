@@ -1,21 +1,15 @@
 const displayList = (listDisplay, covid) => {
-  switch (true) {
-    case listDisplay === "cases":
-      return covid.cases;
-    case listDisplay === "todayCases":
-      return covid.todayCases;
-    case listDisplay === "deaths":
-      return covid.deaths;
-    case listDisplay === "todayDeaths":
-      return covid.todayDeaths;
-    case listDisplay === "recovered":
-      return covid.recovered;
-    case listDisplay === "todayRecovered":
-      return covid.todayRecovered;
-    default:
-      return null;
-  }
+  const liste = {
+    cases: covid.cases,
+    todayCases: covid.todayCases,
+    deaths: covid.deaths,
+    todayDeaths: covid.todayDeaths,
+    recovered: covid.recovered,
+    todayRecovered: covid.todayRecovered,
+  };
+  return liste[listDisplay];
 };
+
 const sort = (sortDisplay, listDisplay) => {
   switch (true) {
     case sortDisplay === "up" && listDisplay === "cases":
@@ -30,7 +24,6 @@ const sort = (sortDisplay, listDisplay) => {
       return (a, b) => b.recovered - a.recovered;
     case sortDisplay === "up" && listDisplay === "todayRecovered":
       return (a, b) => b.todayRecovered - a.todayRecovered;
-
     case sortDisplay === "down" && listDisplay === "cases":
       return (a, b) => a.cases - b.cases;
     case sortDisplay === "down" && listDisplay === "todayCases":
@@ -43,9 +36,10 @@ const sort = (sortDisplay, listDisplay) => {
       return (a, b) => a.recovered - b.recovered;
     case sortDisplay === "down" && listDisplay === "todayRecovered":
       return (a, b) => a.todayRecovered - b.todayRecovered;
-
-    case sortDisplay === "apha":
+    case sortDisplay === "atz":
       return (a, b) => a.country.localeCompare(b.country);
+    case sortDisplay === "zta":
+      return (a, b) => b.country.localeCompare(a.country);
     default:
       return null;
   }

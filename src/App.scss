@@ -15,10 +15,11 @@ h5 {
 
 .App {
   background-color: $primaryColor;
-  color: whitesmoke;
+  color: $thirdlyColor;
   width: 100vw;
   height: 100vh;
   overflow: hidden;
+  user-select: none;
 }
 
 .Global-container {
@@ -28,3 +29,18 @@ h5 {
   display: -ms-flexbox;
   display: flex;
 }
+
+/**************************Loder***************************/
+@import "./components/CommonComponents/Loder/style.scss";
+/**************************Menu***************************/
+@import "./components/CommonComponents/Menu/style.scss";
+/**************************Topbar***************************/
+@import "./components/CommonComponents/Top-bar/style.scss";
+/**************************Home***************************/
+@import "./screen/Home/style.scss";
+/**************************History***************************/
+@import "./screen/Historique/style.scss";
+/**************************DarkMode***************************/
+@import "./styles/darkMode.scss";
+/**************************Mobile***************************/
+@import "./styles/mobile.scss";
