@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Covid-Live",
+  "name": "Covid Live PWA",
   "icons": [
     {
       "src": "./icons/192.png",
@@ -15,6 +15,6 @@
   ],
   "start_url":"./?source=pwa",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#fff",
+  "background_color": "#313131"
 }

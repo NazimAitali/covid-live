@@ -32,7 +32,6 @@ this.addEventListener("fetch", (event) => {
         return await fetch(event.request);
       } catch (e) {
         let response = await cache.match(event.request);
-        //Si la réponse n'est pas dans le cache, fallback sur une page d'information
         if (!response) {
           response = await cache.match("offline.html");
         }
