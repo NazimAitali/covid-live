@@ -2,7 +2,6 @@ const PREFIX = "Covid-live-cache";
 const CACHED_FILES = [
   "./offline.html",
   "./style.css",
-  "./icons/192.png",
   "./icons/no-wifi.png",
   "./icons/github.png",
   "./icons/twitter.png",
